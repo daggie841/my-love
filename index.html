@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Valentine ❤️</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @keyframes zoomImage {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.6); opacity: 0; }
+    }
+
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -30px;
+      font-size: 28px;
+      animation: floatHearts 6s linear infinite;
+      z-index: 20; /* ABOVE BG + OVERLAY */
+      pointer-events: none;
+    }
+
+    .pulse {
+      animation: pulseHeart 1.5s infinite;
+    }
+  </style>
+</head>
+
+<body class="h-screen flex items-center justify-center relative text-white overflow-hidden">
+
+  <!-- Background -->
+  <img src="l.jpg"
+       class="absolute inset-0 w-full h-full object-cover object-center animate-[zoomImage_20s_ease-in-out_infinite_alternate] z-0"
+       alt="Love Background">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+  <!-- Floating Hearts (NOW ABOVE BG + OVERLAY) -->
+  <div class="heart left-10">❤️</div>
+  <div class="heart left-1/4" style="animation-delay:1s;">💖</div>
+  <div class="heart left-1/2 text-3xl" style="animation-delay:2s;">💘</div>
+  <div class="heart left-3/4" style="animation-delay:3s;">💕</div>
+  <div class="heart right-10" style="animation-delay:4s;">💓</div>
+
+  <!-- Card -->
+  <div class="relative z-30 max-w-lg mx-4 p-10 rounded-3xl 
+              bg-white/20 backdrop-blur-xl shadow-2xl text-center">
+
+    <h1 class="text-4xl font-bold mb-4 pulse">Hey My Valentine 😘</h1>
+
+    <p class="text-lg leading-relaxed">
+      Soooo… you’re traveling tonight just to come see me? 🥰  
+      Should I be nervous? Excited? Or both? 😏  
+      Tomorrow starts our little love adventure…  
+      And I promise you, it’s going to be unforgettable ❤️
+    </p>
+
+    <!-- YES BUTTON -->
+    <button onclick="window.location.href='page2.html'"
+      class="mt-6 px-6 py-3 bg-white text-pink-600 
+             rounded-full font-semibold 
+             hover:scale-110 hover:bg-pink-100 
+             transition duration-300 shadow-lg">
+      Click Me If You Miss Me 💕
+    </button>
+
+    <!-- NO BUTTON -->
+    <button id="noBtn"
+      class="mt-4 px-6 py-3 bg-pink-600 text-white 
+             rounded-full font-semibold 
+             transition duration-300 shadow-lg absolute">
+      I don't want to be your Valentine 😝
+    </button>
+
+  </div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 200);
+    const y = Math.random() * (window.innerHeight - 100);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+</script>
+
+</body>
+</html>
