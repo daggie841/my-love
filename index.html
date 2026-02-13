@@ -78,26 +78,49 @@
     </button>
 
     <!-- NO BUTTON -->
-    <button id="noBtn"
-      class="mt-4 px-6 py-3 bg-pink-600 text-white 
-             rounded-full font-semibold 
-             transition duration-300 shadow-lg absolute">
-      I don't want to be your Valentine 😝
-    </button>
-
-  </div>
+<button id="noBtn"
+  class="px-6 py-3 bg-pink-600 text-white 
+         rounded-full font-semibold 
+         transition duration-300 shadow-lg absolute z-40">
+  I don't want to be your Valentine 😝
+</button>
 
 <script>
   const noBtn = document.getElementById("noBtn");
 
-  noBtn.addEventListener("mouseover", function() {
-    const x = Math.random() * (window.innerWidth - 200);
-    const y = Math.random() * (window.innerHeight - 100);
+  function moveButton() {
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    const maxX = window.innerWidth - btnWidth - 20;
+    const maxY = window.innerHeight - btnHeight - 20;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+  }
+
+  // Desktop hover
+  noBtn.addEventListener("mouseenter", moveButton);
+
+  // Mobile tap
+  noBtn.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    moveButton();
   });
+
+  // Also move if someone somehow clicks it
+  noBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    moveButton();
+  });
+
+  // Initial position
+  moveButton();
 </script>
+
 
 </body>
 </html>
