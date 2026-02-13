@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Choose You ❤️</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen w-screen flex items-center justify-center bg-cover bg-center"
+      style="background-image: url('l.jpg');">
+
+<!-- Overlay for better readability -->
+<div class="absolute inset-0 bg-black/50"></div>
+
+<!-- Centered content -->
+<div class="relative z-10 text-center px-4 max-w-2xl">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg animate-fade-in">
+        In a world full of women, I choose you ❤️
+    </h1>
+    <p class="text-xl md:text-2xl text-white leading-relaxed drop-shadow-lg animate-fade-in delay-200">
+        I choose to stay with you, to make you happy, to be your partner, your best friend, your everything.  
+        You are my heart, my joy, and my forever.
+    </p>
+</div>
+
+<!-- Simple fade-in animation using Tailwind's animate -->
+<style>
+@keyframes fade-in {
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in {
+    animation: fade-in 1s ease forwards;
+}
+.animate-fade-in.delay-200 {
+    animation-delay: 0.2s;
+}
+</style>
+
+</body>
+</html>
